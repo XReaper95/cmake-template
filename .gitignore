@@ -1,4 +1,5 @@
 # Ignore all files by default and scan all directories
+*
 !*/
 
 # Except This file
