@@ -1,0 +1,28 @@
+# Ignore all files by default and scan all directories
+!*/
+
+# Except This file
+!/.gitignore
+
+# Except clang-format configuration file
+!/.clang-format
+
+# Except source and content
+!/src/**/*
+!/content/**/*
+
+# Except CMake files
+!/cmake/**/*
+!/CMakeLists.txt
+!/CMakePresets.json
+
+# Except external libraries
+!/external/**/*
+
+# Ignore build directories
+/cmake-build-*/
+/.build
+/build
+
+# Ignore Jetbrains IDE's configuration directory
+/.idea/

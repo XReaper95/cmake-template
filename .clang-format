@@ -1,0 +1,81 @@
+# For C and C++
+BasedOnStyle: LLVM
+AccessModifierOffset: -4
+AlignConsecutiveAssignments:
+  Enabled: true
+  AlignCompound: true
+  AcrossComments: true
+  AcrossEmptyLines: false
+  PadOperators: true
+AlignConsecutiveDeclarations:
+  Enabled: true
+  AlignCompound: true
+  AcrossComments: true
+  AcrossEmptyLines: false
+AlignOperands: Align
+AlignTrailingComments: false
+AlignAfterOpenBracket: BlockIndent
+AlignEscapedNewlines: Left
+AllowAllParametersOfDeclarationOnNextLine: true
+AllowShortBlocksOnASingleLine: Empty
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: InlineOnly
+AllowShortIfStatementsOnASingleLine: true
+AllowShortLoopsOnASingleLine: true
+AllowShortLambdasOnASingleLine: Inline
+AlwaysBreakAfterDefinitionReturnType: None
+AlwaysBreakAfterReturnType: None
+AlwaysBreakBeforeMultilineStrings: true
+AlwaysBreakTemplateDeclarations: Yes
+LambdaBodyIndentation: OuterScope
+BinPackArguments: false
+BinPackParameters: false
+BreakBeforeBraces: Attach
+BreakConstructorInitializers: AfterColon
+BreakConstructorInitializersBeforeComma: false
+BreakBeforeBinaryOperators: NonAssignment
+BreakBeforeInheritanceComma: true
+BreakBeforeTernaryOperators: true
+BreakStringLiterals: true
+ColumnLimit: 100
+ConstructorInitializerAllOnOneLineOrOnePerLine: false
+ContinuationIndentWidth: 4
+Cpp11BracedListStyle: true
+SpaceBeforeCpp11BracedList: false
+EmptyLineBeforeAccessModifier: LogicalBlock
+IncludeBlocks: Regroup
+IncludeCategories:
+  - Regex: '^".*'
+    Priority: 1
+  - Regex: '^<.*'
+    Priority: 2
+  - Regex: '.*'
+    Priority: 3
+IncludeIsMainRegex: '([-_](test|unittest))?$'
+IndentCaseLabels: true
+IndentWidth: 4
+IndentPPDirectives: BeforeHash
+InsertNewlineAtEOF: true
+KeepEmptyLinesAtTheStartOfBlocks: false
+MacroBlockBegin: ''
+MacroBlockEnd: ''
+MaxEmptyLinesToKeep: 2
+NamespaceIndentation: Inner
+PenaltyReturnTypeOnItsOwnLine: 1000
+PackConstructorInitializers: NextLineOnly
+PointerAlignment: Left
+ReferenceAlignment: Left
+SeparateDefinitionBlocks: Leave
+SpaceAfterCStyleCast: true
+SpaceAfterTemplateKeyword: false
+SpaceBeforeRangeBasedForLoopColon: false
+SpaceInEmptyParentheses: false
+SpacesInAngles: false
+SpacesInParens: Custom
+SpacesInParensOptions:
+  InCStyleCasts: false
+  InEmptyParentheses: false
+  InConditionalStatements: false
+  Other: false
+SortIncludes: CaseSensitive
+TabWidth: 4

@@ -1,0 +1,38 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 23,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "generator": "Ninja Multi-Config",
+      "binaryDir": "$env{__BASE_BINARY_DIR}/intermediate",
+      "cacheVariables": {
+        "CMAKE_RUNTIME_OUTPUT_DIRECTORY": "$env{__BASE_BINARY_DIR}/out/bin",
+        "CMAKE_LIBRARY_OUTPUT_DIRECTORY": "$env{__BASE_BINARY_DIR}/out/lib/dynamic",
+        "CMAKE_ARCHIVE_OUTPUT_DIRECTORY": "$env{__BASE_BINARY_DIR}/out/lib/static"
+      },
+      "environment": {
+        "__BASE_BINARY_DIR": "${sourceDir}/build/${presetName}"
+      }
+    },
+    {
+      "name": "win-base",
+      "inherits": "base",
+      "vendor": {
+        "jetbrains.com/clion": {
+          "toolchain": "Visual Studio"
+        }
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    }
+  ]
+}

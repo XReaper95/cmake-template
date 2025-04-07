@@ -1,0 +1,14 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 23,
+    "patch": 0
+  },
+  "include": [
+    "cmake/presets/msvc.json",
+    "cmake/presets/clang.json",
+    "cmake/presets/gcc.json",
+    "cmake/presets/emscripten.json"
+  ]
+}
