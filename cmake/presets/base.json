@@ -14,7 +14,8 @@
       "cacheVariables": {
         "CMAKE_RUNTIME_OUTPUT_DIRECTORY": "$env{__BASE_BINARY_DIR}/out/bin",
         "CMAKE_LIBRARY_OUTPUT_DIRECTORY": "$env{__BASE_BINARY_DIR}/out/lib/dynamic",
-        "CMAKE_ARCHIVE_OUTPUT_DIRECTORY": "$env{__BASE_BINARY_DIR}/out/lib/static"
+        "CMAKE_ARCHIVE_OUTPUT_DIRECTORY": "$env{__BASE_BINARY_DIR}/out/lib/static",
+        "CMAKE_CONFIGURATION_TYPES": "Debug;Release"
       },
       "environment": {
         "__BASE_BINARY_DIR": "${sourceDir}/build/${presetName}"

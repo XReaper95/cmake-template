@@ -16,6 +16,7 @@
       "description": "Debug configuration using Ninja generator and the 64-bit Clang compiler.",
       "cacheVariables": {
         "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++",
         "CMAKE_SYSTEM_PROCESSOR": "AMD64"
       },
       "vendor": {

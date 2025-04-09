@@ -10,14 +10,34 @@ endmacro()
     this allows includes to be used like `#include "thirdparty/<lib_name>/..."`.
     
     Parameters:
-        lib_name: The name of the external library, used to resolve the `path` parameter.
+        lib_name: The name of the external library, should match the subdirectory inside ${EXTERNAL_LIBS_SOURCES_DIR}
         path: The path to the file to copy, should be relative to "${EXTERNAL_LIBS_SOURCES_DIR}/${lib_name}".
 ]]
 function(copy_thirdparty_includes lib_name path)
-    set(ORIGIN_DIR "${EXTERNAL_LIBS_SOURCES_DIR}/${lib_name}")
-    set(DESTINATION_DIR "${THIRDPARTY_INCLUDES_DIR}/${lib_name}/")
+    set(origin_dir "${EXTERNAL_LIBS_SOURCES_DIR}/${lib_name}")
+    set(destination_dir "${THIRDPARTY_INCLUDES_DIR}/${lib_name}/")
 
-    file(COPY "${ORIGIN_DIR}/${path}" DESTINATION "${DESTINATION_DIR}")
+    file(COPY "${origin_dir}/${path}" DESTINATION "${destination_dir}")
+endfunction()
+
+#[[ Same as `copy_thirdparty_includes` but accepts a glob expression
+    that will be used to collect several files.
+    
+    Parameters:
+        lib_name: The name of the external library, should match the subdirectory 
+                  inside ${EXTERNAL_LIBS_SOURCES_DIR}.
+        glob_expr: A "Glob" expression that should match several file paths. It should be relative to 
+                   "${EXTERNAL_LIBS_SOURCES_DIR}/${lib_name}".
+]]
+function(copy_thirdparty_includes_glob lib_name glob_expr)
+    set(origin_dir "${EXTERNAL_LIBS_SOURCES_DIR}/${lib_name}")
+    set(destination_dir "${THIRDPARTY_INCLUDES_DIR}/${lib_name}/")
+
+    file(GLOB collected_files "${origin_dir}/${glob_expr}")
+
+    foreach (file_path ${collected_files})
+        file(COPY "${file_path}" DESTINATION "${destination_dir}")
+    endforeach ()
 endfunction()
 
 #[[ Add the path  "${EXTERNAL_LIBS_SOURCES_DIR}" to the ${target} include directories,

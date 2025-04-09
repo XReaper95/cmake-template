@@ -11,21 +11,22 @@ set_target_properties(${PROJECT_NAME} PROPERTIES C_STANDARD 11)
 set_target_properties(${PROJECT_NAME} PROPERTIES C_STANDARD_REQUIRED ON)
 set_target_properties(${PROJECT_NAME} PROPERTIES C_EXTENSIONS OFF)
 
-# this is set by the included Windows toolchain
-if (MSVC)
-    target_compile_options(${PROJECT_NAME} PRIVATE /nologo /W4 /WX)
-else ()
-    # should cover both GCC and CLANG
-    target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -W -Werror -pedantic-errors)
-endif ()
+# set warnings
+target_compile_options(${PROJECT_NAME} PRIVATE
+        "$<${COMPILER_GCC_LIKE}:-Wall;-Wextra;-W;-Werror;-pedantic-errors>"
+        "$<${COMPILER_MSVC_LIKE}:/nologo;/W4;/WX>"
+)
 
 # this is set by the Emscripten toolchain
 if (EMSCRIPTEN)
     set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".html")
-    # to emscripten stuff, handle resources
+    
+    # do emscripten stuff, handle resources
 else ()
     # add symlink to resources
     symlink_content(${PROJECT_NAME} contents)
+
+    # desktop specific stuff
 endif ()
 
 # configure external dependencies
