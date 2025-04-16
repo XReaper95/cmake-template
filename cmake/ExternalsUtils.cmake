@@ -3,5 +3,5 @@
     EXCLUDE_FROM_ALL.
 ]]
 macro(add_external_subdirectory lib_name)
-    add_subdirectory("${EXTERNAL_LIBS_SOURCES_DIR}/${lib_name}" "${CMAKE_BINARY_DIR}/external/${lib_name}" EXCLUDE_FROM_ALL)
+    add_subdirectory("${EXTERNAL_LIBS_SOURCES_DIR}/${lib_name}" "${CMAKE_BINARY_DIR}/external/${lib_name}")
 endmacro()
