@@ -9,7 +9,7 @@ project("example_library" LANGUAGES C VERSION 0.0.1)
 add_library(example_lib_target STATIC src/impl.c)
 
 # for finding headers
-target_include_directories(example_lib_target PRIVATE include)
+target_include_directories(example_lib_target PUBLIC include)
 
 # library provided options
 option(EXTERNAL_LIBRARY_CMAKE_FLAG "A flag to toggle a cool feature." OFF)

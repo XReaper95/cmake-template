@@ -1,5 +1,4 @@
-#include "hello.h"
-
+#include <example_library/hello.h>
 #include <stdio.h>
 
 void external_library_function(void) {
