@@ -1,29 +1,8 @@
-# Ignore all files by default and scan all directories
-*
-!*/
-
-# Except This file
-!/.gitignore
-
-# Except clang-format configuration file
-!/.clang-format
-
-# Except source and content
-!/src/**/*
-!/content/**/*
-
-# Except CMake files
-!/cmake/**/*
-!/CMakeLists.txt
-!/CMakePresets.json
-
-# Except external libraries
-!/external/**/*
-
-# Ignore build directories
-/cmake-build-*/
-/.build
+# ignore build directory
 /build
 
-# Ignore Jetbrains IDE's configuration directory
-/.idea/
+# ignore JetBrains IDE fodlers
+/.idea
+
+# ignore compilation database files, there should be generated
+/compilation_database.json
