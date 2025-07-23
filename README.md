@@ -27,5 +27,3 @@ from any platform:
 
 You should customize and/or extend these workflows for your specific needs.
 See https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html.
-
-For an example on how to use this, see https://github.com/XReaper95/raylib-game-template.
