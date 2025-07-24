@@ -1,0 +1,40 @@
+{
+  "version": 10,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 31,
+    "patch": 0
+  },
+  "include": [
+    "../base.json",
+    "../toolchains/emscripten.json",
+    "../configs/dev.json",
+    "../configs/shipping.json"
+  ],
+  "configurePresets": [
+    {
+      "name": "emscripten-dev",
+      "inherits": [
+        "emscripten",
+        "config-dev"
+      ]
+    },
+    {
+      "name": "emscripten-shipping",
+      "inherits": [
+        "emscripten",
+        "config-shipping"
+      ]
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "emscripten-dev",
+      "configurePreset": "emscripten-dev"
+    },
+    {
+      "name": "emscripten-shipping",
+      "configurePreset": "emscripten-shipping"
+    }
+  ]
+}

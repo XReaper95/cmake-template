@@ -6,7 +6,7 @@
         target_name: The name of the target, to obtain the binary folder.
         content_dir: The path to the contents, relative the the project root.
 ]]
-function(symlink_content target_name content_dir)
+function(SymlinkContent target_name content_dir)
     set(content_dir_path ${PROJECT_ROOT_DIR}/${content_dir})
     get_filename_component(content_dir ${content_dir_path} NAME)
 

@@ -1,0 +1,20 @@
+{
+  "version": 10,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 31,
+    "patch": 0
+  },
+  "include": [
+    "../base.json"
+  ],
+  "configurePresets": [
+    {
+      "$comment": "Emscripten for WebAssembly.",
+      "name": "emscripten",
+      "hidden": true,
+      "inherits": "base",
+      "toolchainFile": "$env{EMSDK}/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake"
+    }
+  ]
+}

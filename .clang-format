@@ -45,13 +45,19 @@ SpaceBeforeCpp11BracedList: false
 EmptyLineBeforeAccessModifier: LogicalBlock
 IncludeBlocks: Regroup
 IncludeCategories:
-  - Regex: '^".*'
+  # first main header for source file always has Priority: 0 (max. priority)
+  # then main application (use quotes)
+  - Regex: '^".*\.h"'
     Priority: 1
-  - Regex: '^<.*'
+  # then external library headers (should use the "thirdparty" include convention)
+  - Regex: '^<thirdparty/.*\.h>'
     Priority: 2
-  - Regex: '.*'
+  # then system headers, standard or compiler specific
+  - Regex: '^<.*'
     Priority: 3
-IncludeIsMainRegex: '([-_](test|unittest))?$'
+  # then anything else
+  - Regex: '.*'
+    Priority: 4
 IndentCaseLabels: true
 IndentWidth: 4
 IndentPPDirectives: BeforeHash
