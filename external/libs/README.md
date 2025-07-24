@@ -23,10 +23,10 @@
     - `include/**`
     - `src/**`
     - `support/**`
-    - `ChangeLog.md`
+    - `ChangeLog.md`  (required by the build)
     - `CMakeLists.txt`
     - `LICENSE`
-    - `README.md`
+    - `README.md`  (required by the build)
 
 
 ## tracy
