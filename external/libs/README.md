@@ -1,12 +1,20 @@
 # External libraries
 
-## (GUIDE) <library name>
+Dependencies are embedded (vendored), and documented following the template. Library integration 
+should be done in a file named `<dependency_name.cmake>`, that lives at`<project_root>/cmake/dependencies`. 
+For consistency, `dependency_name` should match the name of the top level folder here. Libraries that do
+not support CMake should be wrapped by creating a CMakeLists.txt file for them (set the `Wrapped` item),
+this file is better commited at the root of the library.
+
+
+##  \<library name\> (TEMPLATE)
 
 - Description: A small description for the library.
 - Upstream: GitHub/Gitlab/CodeBerg link, if any.
 - Version: branch, tag or any identifier (optionally the exact commit hash here)
 - License: name of the license (i.e `MIT`)
 - Updated: `dd/mm/YYYY (example format)` (last time this dependency was manually updated)
+- Wrapped: `yes/no` (a CMakeLists.txt wrapper was used)
 - Files extracted from upstream:
     - A list of files extracted from the dependency repository, since dependencies
       are embedded, it's better to bring only required files, this should be tested

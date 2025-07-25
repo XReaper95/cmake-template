@@ -4,8 +4,8 @@ project("ProjectName" CXX)
 # set the CMake modules path, required to import using " include(...)"
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
 
-# ========== Global Configuration ===========
-include("Globals")
+# ========== Global Configuration, options and imports ===========
+include("GlobalConfig")
 include("Options")
 include("SymlinkContent")
 include("ExternalsUtils")
@@ -15,7 +15,7 @@ include("ExternalsUtils")
 include("dependencies/fmt")
 include("dependencies/tracy")
 
-# ============================ Main Project =============================
+# ======================= Main Project =======================
 Announce("Configuring main project")
 
 # project sources
@@ -32,13 +32,26 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 # C++ features
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_20)
 
-# compiler switches
-target_compile_options(${PROJECT_NAME} PRIVATE
-        "$<${CXX_COMPILER_GCC_LIKE_GXPR}:-Wall;-Wextra;-W;-Werror;-pedantic-errors;-Wno-language-extension-token>"
-        "$<${CXX_COMPILER_MSVC_LIKE_GXPR}:/nologo;/W4;/WX;/EHsc>"
-)
+# compiler flags
+if (CXX_COMPILER_IS_GNU_LIKE)
+    target_compile_options(${PROJECT_NAME} PRIVATE
+            -Wall
+            -Wextra
+            -W
+            -Werror
+            -pedantic-errors
+            -Wno-language-extension-token
+    )
+elseif (CXX_COMPILER_IS_MSVC_LIKE)
+    target_compile_options(${PROJECT_NAME} PRIVATE
+            /W4
+            /WX
+    )
+else ()
+    message(FATAL_ERROR "Unknown compiler frontend.")
+endif ()
 
-if (NOT EMSCRIPTEN)
+if (NOT TARGET_PLATFORM_IS_WEB)
     # content handling
     SymlinkContent(${PROJECT_NAME} "contents")
 else ()
@@ -62,3 +75,6 @@ elseif (CONFIG_IS_PROFILE)
     AddMacroDefinitions("PROFILE_BUILD")
     message(STATUS "Build type: Profile (Shipping with debug info)")
 endif ()
+
+# platform
+message(STATUS "Building for '${CMAKE_SYSTEM_NAME}' platform")
