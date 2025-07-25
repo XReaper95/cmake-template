@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.23)
-project("ProjectName" CXX)
+project("CMakeTemplateExample" CXX)
 
 # set the CMake modules path, required to import using " include(...)"
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
